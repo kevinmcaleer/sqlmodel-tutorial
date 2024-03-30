@@ -1,4 +1,4 @@
-from models import SQLModel, Hero
+from models import SQLModel, Hero, User
 from sqlmodel import create_engine, Session
 
 
@@ -21,5 +21,16 @@ def create_heroes():
     session.add(hero_1)
     session.add(hero_2)
     session.add(hero_3)
+
+    session.commit()
+
+def create_users():
+    user_1 = User(username="Kev", email="info@kevsrobots.com", password="password123")
+    user_2 = User(username="Alex", email="mods@kevsrobots.com", password="password123")
+
+    session = Session(engine)
+
+    session.add(user_1)
+    session.add(user_2)
 
     session.commit()
